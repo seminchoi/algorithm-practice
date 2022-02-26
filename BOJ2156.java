@@ -21,7 +21,7 @@ public class B2156 {
 		
 		for(int i = 1; i < n; i++) {
 			DP[i][0] = DP[i-1][2] > DP[i-1][3] ? w[i] + DP[i-1][2] : w[i] + DP[i-1][3] ;
-			//The case of first time drink wine without continuation
+			//The case of drink wine for the first time without continuation
 			DP[i][1] = w[i] + DP[i-1][0];
 			//The case of drink wine twice in a row
 			DP[i][2] = DP[i-1][0] > DP[i-1][1] ? DP[i-1][0] : DP[i-1][1];
