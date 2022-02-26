@@ -25,7 +25,7 @@ public class B2156 {
 			DP[i][1] = w[i] + DP[i-1][0];
 			//The case of drink wine twice in a row
 			DP[i][2] = DP[i-1][0] > DP[i-1][1] ? DP[i-1][0] : DP[i-1][1];
-			//The case of first time do not drink wine without continuation
+			//The case of do not drink wine for the first time without continuation
 			DP[i][3] = DP[i-1][2];
 			//The case of do not drink wine twice in a row
 		}
