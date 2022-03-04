@@ -11,17 +11,17 @@ public class BOJ11055 {
 		
 		for(int i = 0; i < A; i++) {		
 			arr[i] = sc.nextInt();
-			//DP[i]¸¦ arr[i]¿Í °°Àº °ªÀ¸·Î ÃÊ±âÈ­
-			//À§ÀÇ ÃÊ±âÈ­¸¦ ÇÏÁö ¾ÊÀ» ½Ã ÀÌÀü ¹è¿­ÀÇ °ªµéÀÌ ¸ðµÎ ÇöÀç¹è¿­º¸´Ù Å¬ °æ¿ì¿¡ ÇöÀç ¹è¿­°ªÀÌ ¹«½ÃµÇ´Â °æ¿ì ¹ß»ý
+			//DP[i]ë¥¼ arr[i]ë¡œ ì´ˆê¸°í™”
+			//ìœ„ì˜ ì´ˆê¸°í™”ë¥¼ í•´ì£¼ì§€ ì•Šì„ ì‹œ í˜„ìž¬ ë°°ì—´ì˜ ê°’ë³´ë‹¤ ì´ì „ ë°°ì—´ì˜ ê°’ë“¤ì´ ëª¨ë‘ í´ ê²½ìš° ì˜¤ì°¨ë°œìƒ
 			DP[i] = arr[i];
 		}
 		
 		DP[0] = arr[0];
 		for(int i = 1; i < A; i++) {
 			for(int j = 0; j < i; j++) {
-				//Áõ°¡ÇÏ´Â ºÎºÐ¼ö¿­ÀÇ Á¶°Ç¿¡ ÀÇÇØ arr[i]º¸´Ù ÀÛÀº arr[j]Áß
+				//ì¦ê°€í•˜ëŠ” ë¶€ë¶„ìˆ˜ì—´ ì¡°ê±´ì— ì˜í•´ arr[i]ê°€ arr[j]ë³´ë‹¤ í´ ê²½ìš°ì—ë§Œ
 				if( arr[i] > arr[j] )
-					//ÇÕÀÌ °¡Àå Å« DP[j]¸¦ arr[i]¿Í ´õÇØ¼­ ÀúÀå
+					//DP[j]ì¤‘ ê°€ìž¥ í° ê°’ì„ í˜„ìž¬ ë°°ì—´ê°’ê³¼ ë”í•´ì„œ DP[i]ì— ì €ìž¥
 					DP[i] = DP[i] < DP[j] + arr[i] ? DP[j] + arr[i] : DP[i];
 			}
 		}		
