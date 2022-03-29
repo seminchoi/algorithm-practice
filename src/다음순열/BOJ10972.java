@@ -14,17 +14,13 @@ public class BOJ10972 {
             arr[i] = sc.nextInt();
         }
 
-        int bridx = -1;
+        int bridx = -1, min = N+1;
         Loop : for (int i = N - 1; i >= 0; i--) {
-            if(arr[i] < N){
-                for(int j = i + 1; j < N; j++){
-                    if(arr[i] < arr[j]){
-                        int tmp = arr[j];
-                        arr[j] = arr[i];
-                        arr[i] = tmp;
-                        bridx = i;
-                        break Loop;
-                    }
+            for(int j = i + 1; j < N; j++){
+                if(arr[i] < arr[j] && min > arr[j]){
+                    min = arr[j];
+                    bridx = i;
+                    if(j == N-1) break Loop;
                 }
             }
         }
@@ -33,6 +29,8 @@ public class BOJ10972 {
             System.out.println(-1);
             return;
         }
+
+        arr[bridx] = min;
 
         for(int i = 0; i <= bridx; i++){
             vis[arr[i]] = true;
