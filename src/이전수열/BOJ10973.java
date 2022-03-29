@@ -1,10 +1,11 @@
-package 다음순열;
+package 이전수열;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BOJ10972 {
-    public static void main(String[] args){
+public class BOJ10973 {
+    public static void main(String[] args) {
+        // 1 3 2 4
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int[] arr = new int[N];
@@ -14,10 +15,10 @@ public class BOJ10972 {
             arr[i] = sc.nextInt();
         }
 
-        int bridx = -1, min = N+1;
+        int bridx = -1, min = 0;
         Loop : for (int i = N - 1; i >= 0; i--) {
             for(int j = i + 1; j < N; j++){
-                if(arr[i] < arr[j] && min > arr[j]){
+                if(arr[i] > arr[j] && min < arr[j]){
                     min = arr[j];
                     bridx = i;
                 }
@@ -36,10 +37,9 @@ public class BOJ10972 {
             vis[arr[i]] = true;
         }
 
-        for(int i = 1; i < N+1 && bridx < N - 1; i++){
+        for(int i = N; i > 0 && bridx < N - 1; i--){
             if(!vis[i]){
                 arr[++bridx] = i;
-                vis[i] = true;
             }
         }
 
@@ -48,3 +48,4 @@ public class BOJ10972 {
         }
     }
 }
+
