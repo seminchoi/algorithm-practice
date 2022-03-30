@@ -1,0 +1,17 @@
+Index: src/test/gittest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package test;\n\npublic class gittest {\n    //update defaulat branch\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/gittest.java b/src/test/gittest.java
+--- a/src/test/gittest.java	(revision 98df0fdf7c6c83d1dd9306a6d4d0d47a99d3f1af)
++++ b/src/test/gittest.java	(date 1648635610132)
+@@ -1,5 +1,5 @@
+ package test;
+ 
+ public class gittest {
+-    //update defaulat branch
++    //update defaulat branc
+ }
