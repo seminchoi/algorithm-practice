@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="041e5c1b-876b-4bce-aa86-37f87857da56" name="변경" comment="[10972번] 다음순열" />
+    <list default="true" id="9fd9455f-ed42-4a18-bb28-56b7a1974e66" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,12 +16,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="26pBRKsAfEpUNqqJOCP2zJMzZyX" />
+  <component name="ProjectId" id="27BOwjZ3K6CYkpGqUn01yCHTRrU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,18 +40,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="모듈" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="애플리케이션.BOJ10974">
-    <configuration name="BOJ10972" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="다음순열.BOJ10972" />
+  <component name="RunManager" selected="애플리케이션.BOJ16940">
+    <configuration name="BOJ16929" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TwoDots.BOJ16929" />
       <module name="Baek-joon Algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="다음순열.*" />
+          <option name="PATTERN" value="TwoDots.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -52,12 +56,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BOJ10973" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="이전수열.BOJ10973" />
+    <configuration name="BOJ16940" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BFS스페셜저지.BOJ16940" />
       <module name="Baek-joon Algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="이전수열.*" />
+          <option name="PATTERN" value="BFS스페셜저지.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -65,12 +69,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BOJ10974" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="모든순열.BOJ10974" />
+    <configuration name="BOJ2178" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="미로탐색.BOJ2178" />
       <module name="Baek-joon Algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="모든순열.*" />
+          <option name="PATTERN" value="미로탐색.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,12 +82,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BOJ15668" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="N과M_14.BOJ15668" />
+    <configuration name="BOJ4963" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="섬의개수.BOJ4963" />
       <module name="Baek-joon Algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="N과M_14.*" />
+          <option name="PATTERN" value="섬의개수.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,12 +95,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BOJ1748" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="수이어쓰기1.BOJ1748" />
+    <configuration name="BOJ7576" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="토마토.BOJ7576" />
       <module name="Baek-joon Algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="수이어쓰기1.*" />
+          <option name="PATTERN" value="토마토.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,46 +110,40 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.BOJ10974" />
-        <item itemvalue="애플리케이션.BOJ10973" />
-        <item itemvalue="애플리케이션.BOJ10972" />
-        <item itemvalue="애플리케이션.BOJ1748" />
-        <item itemvalue="애플리케이션.BOJ15668" />
+        <item itemvalue="애플리케이션.BOJ16940" />
+        <item itemvalue="애플리케이션.BOJ16929" />
+        <item itemvalue="애플리케이션.BOJ7576" />
+        <item itemvalue="애플리케이션.BOJ2178" />
+        <item itemvalue="애플리케이션.BOJ4963" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="041e5c1b-876b-4bce-aa86-37f87857da56" name="변경" comment="" />
-      <created>1648110637481</created>
+      <changelist id="9fd9455f-ed42-4a18-bb28-56b7a1974e66" name="변경" comment="" />
+      <created>1648790252399</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648110637481</updated>
-      <workItem from="1648110638969" duration="1795000" />
-      <workItem from="1648279966917" duration="2251000" />
-      <workItem from="1648476643604" duration="2789000" />
-      <workItem from="1648514087441" duration="599000" />
-      <workItem from="1648529980197" duration="1060000" />
-      <workItem from="1648532533469" duration="2298000" />
-      <workItem from="1648561285326" duration="2538000" />
-      <workItem from="1648623813415" duration="7699000" />
+      <updated>1648790252399</updated>
+      <workItem from="1648790254546" duration="2434000" />
+      <workItem from="1648813597329" duration="4722000" />
+      <workItem from="1649388543496" duration="2451000" />
+      <workItem from="1649395797502" duration="1482000" />
+      <workItem from="1649412724537" duration="1053000" />
+      <workItem from="1649576538911" duration="3578000" />
+      <workItem from="1649655415687" duration="6000" />
+      <workItem from="1652406371891" duration="832000" />
+      <workItem from="1656499263456" duration="1201000" />
+      <workItem from="1656500483439" duration="3000" />
+      <workItem from="1656511346178" duration="5710000" />
+      <workItem from="1656750071965" duration="22819000" />
+      <workItem from="1656860030379" duration="4154000" />
+      <workItem from="1657265563194" duration="17786000" />
+      <workItem from="1657984950844" duration="21630000" />
+      <workItem from="1658490407337" duration="8111000" />
+      <workItem from="1658562299035" duration="9668000" />
     </task>
-    <task id="LOCAL-00001" summary="인텔리제이 백준 알고리즘">
-      <created>1648112241401</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1648112241401</updated>
-    </task>
-    <task id="LOCAL-00002" summary="[10972번] 다음순열">
-      <created>1648479038700</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1648479038700</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,10 +159,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="인텔리제이 백준 알고리즘" />
-    <MESSAGE value="[10972번] 다음순열" />
-    <option name="LAST_COMMIT_MESSAGE" value="[10972번] 다음순열" />
   </component>
 </project>
