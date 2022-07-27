@@ -8,6 +8,8 @@ import java.util.List;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+//피드백 : 메서드를 하나로 합치고 배열을 3개 만들어서 한 함수 안에서 각각의 순서에 맞게 배열에 root 값을 저장한 뒤 한번에 출력하면
+//메서드 한 번에 모든 탐색이 가능하다.
 public class BOJ1991 {
     static List<Character>[] tree;
 
