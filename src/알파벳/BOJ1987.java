@@ -1,5 +1,8 @@
 package 알파벳;
 
+// 방법1. Set을 이용해서 알파벳이 포함됐는지 Set.contains를 이용해 확인하며 dfs를 진행한다.
+// 방법2. 알파벳 갯수 만큼의 크기를 가진 boolean 배열을 만들어서 포함 여부를 확인한다.
+// 각 문자의index는 문자 - 'A' 값이다.
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
