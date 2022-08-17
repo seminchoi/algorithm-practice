@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+//움직이고 나서 구슬이 겹쳤을 때의 로직을 한참 고민했는데 막혔었다.
+//4방향 이동 케이스에 한칸 반대로 이동하게 예외처리를 했는데 if else 문이 너무 중첩되어 해석도 안되고 해당 부분에서 문제가 있었던 것 같다.
+//해당 부분만 더 많이 이동한 구슬을 반대로 한 칸 옮겨주는 로직으로 변경하니 정답으로 나왔다.
+
 public class BOJ13460 {
     static int[][] board;
     static int N, M, Rx, Ry, Bx, By, Zx, Zy, res;
