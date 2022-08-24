@@ -72,3 +72,4 @@ public class BOJ2580_2 {
         }
     }
 }
+

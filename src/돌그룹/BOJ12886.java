@@ -3,10 +3,15 @@ package 돌그룹;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BOJ12886 {
-    static int[] rocks = new int[4];
+    static int sum;
+    static int[] rocks = new int[3];
+    static boolean[][] vis = new boolean[1000][1000];
+    static Queue<int[]> queue = new LinkedList<>();
 
     static void swap(int idx1, int idx2){
         int tmp = rocks[idx1];
@@ -14,11 +19,8 @@ public class BOJ12886 {
         rocks[idx2] = tmp;
     }
 
-    static boolean sort(){
+    static void sort(int[] rocks){
         int tmp;
-        if(rocks[0] == rocks[1] && rocks[1] == rocks[2]){
-            return false;
-        }
         if(rocks[2] < rocks[0]){
             tmp = rocks[0];
             rocks[0] = rocks[2];
@@ -34,22 +36,30 @@ public class BOJ12886 {
             rocks[1] = rocks[2];
             rocks[2] = tmp;
         }
-        return true;
     }
 
     static int play(){
-        while(sort()){
-            if(rocks[1] - rocks[0] == 1 && rocks[2] - rocks[1] == 1 || rocks[0] * 2 == rocks[2] - rocks[0])
-                return 0;
+        while(!queue.isEmpty()){
+            int[] rocks = queue.poll();
+            if(rocks[0] == rocks[1] && rocks[1] == rocks[2])
+                return 1;
 
-            for (int i = 0; i <3 ; i++) {
-                System.out.print(rocks[i] + " ");
-            }
-            System.out.println();
-            rocks[2] = rocks[2] - rocks[0];
-            rocks[0] *= 2;
+            sort(rocks);
+            if(vis[rocks[0]][rocks[1]] || rocks[0] == 0)
+                continue;
+
+            vis[rocks[0]][rocks[1]] = true;
+//            for (int i = 0; i <3 ; i++) {
+//                System.out.print(rocks[i] + " ");
+//            }
+//            System.out.println();
+
+            int[] nextrocks = {rocks[0]*2, rocks[1], rocks[2] - rocks[0]};
+            queue.offer(nextrocks);
+            int[] nextrocks2 = {rocks[0], rocks[1]*2, rocks[2] - rocks[1]};
+            queue.offer(nextrocks2);
         }
-        return 1;
+        return 0;
     }
 
     public static void main(String[] args) throws IOException {
@@ -60,9 +70,16 @@ public class BOJ12886 {
         rocks[1] = Integer.parseInt(st.nextToken());
         rocks[2] = Integer.parseInt(st.nextToken());
 
-        if((rocks[0] + rocks[1] + rocks[2]) % 3 != 0)
+        sum = rocks[0] + rocks[1] + rocks[2];
+        sort(rocks);
+        if(sum % 3 != 0 )
             System.out.println(0);
-        else
+        else if ( sum % 6 != 0 && !(rocks[0] == rocks[1] && rocks[1]== rocks[2])){
+            System.out.println(0);
+        }
+        else {
+            queue.offer(rocks);
             System.out.println(play());
+        }
     }
 }
