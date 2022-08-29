@@ -49,10 +49,10 @@ public class BOJ12886 {
                 continue;
 
             vis[rocks[0]][rocks[1]] = true;
-//            for (int i = 0; i <3 ; i++) {
-//                System.out.print(rocks[i] + " ");
-//            }
-//            System.out.println();
+            for (int i = 0; i <3 ; i++) {
+                System.out.print(rocks[i] + " ");
+            }
+            System.out.println();
 
             int[] nextrocks = {rocks[0]*2, rocks[1], rocks[2] - rocks[0]};
             queue.offer(nextrocks);
