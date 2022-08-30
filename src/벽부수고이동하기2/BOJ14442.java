@@ -26,13 +26,12 @@ public class BOJ14442 {
             if(curPos[0] == m-1 && curPos[1] == n-1)
                 return curPos[2];
 
-            breakBoard[curPos[1]][curPos[0]] = curPos[3];
-
             for (int i = 0; i < 4; i++) {
                 int nextX = curPos[0]+xPos[i], nextY = curPos[1]+yPos[i];
                 if(nextX >= 0 && nextX < m && nextY >= 0 && nextY < n){
                     int breakDoor = board[nextY][nextX] ? curPos[3] : curPos[3]+1;
                     if(breakBoard[nextY][nextX] > breakDoor) {
+                        breakBoard[nextY][nextX] = breakDoor;
                         queue.offer(new int[] {nextX, nextY, curPos[2]+1, breakDoor});
                     }
                 }
@@ -60,6 +59,7 @@ public class BOJ14442 {
         }
 
         queue.offer(new int[] {0,0,1,0});
+        breakBoard[0][0] = 0;
 
         System.out.println(bfs());
 
