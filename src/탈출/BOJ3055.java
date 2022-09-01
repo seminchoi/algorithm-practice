@@ -48,15 +48,6 @@ public class BOJ3055{
             if(curD == curPos.depth){
                 curD++;
                 waterfall();
-//                if(board[curPos.y][curPos.x] == '*')
-//                    continue;
-//                for (int i = 1; i < r+1; i++) {
-//                    for (int j = 1; j < c+1; j++) {
-//                        System.out.print(board[i][j]);
-//                    }
-//                    System.out.println();
-//                }
-//                System.out.println();
             }
             for (int i = 0; i < 4; i++) {
                 int nextX = curPos.x+dx[i], nextY = curPos.y+dy[i];
