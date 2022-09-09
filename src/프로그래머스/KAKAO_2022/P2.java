@@ -1,8 +1,9 @@
 package 프로그래머스.KAKAO_2022;
 
 import java.util.Queue;
-
 import java.util.LinkedList;
+
+//30분
 public class P2 {
     class Solution {
         public int solution(int[] queue1, int[] queue2) {

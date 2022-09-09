@@ -1,7 +1,7 @@
 package 프로그래머스.KAKAO_2022;
 
-import java.util.LinkedHashMap;
 
+//30분
 public class P1 {
     class Solution {
         public int getIdx(char c){
