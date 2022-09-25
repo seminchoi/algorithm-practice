@@ -1,19 +1,20 @@
 package 네연산;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class BOJ14395_2 {
-    static int s, t;
-    static String[] dp;
+    static long s, t;
+    static HashMap<Long, String> map = new HashMap<>();
     static Queue<Info> q = new LinkedList<>();
 
     static class Info{
-        int s;
+        long s;
         String res;
 
-        public Info(int s, String res) {
+        public Info(long s, String res) {
             this.s = s;
             this.res = res;
         }
@@ -22,64 +23,75 @@ public class BOJ14395_2 {
     static void bfs(){
         while (!q.isEmpty()){
             Info cur = q.poll();
-            if(cur.s == t && (dp[t] == "z" || cur.res.length() <= dp[t].length())){
-                if(cur.res.compareTo(dp[t]) < 0){
-                    dp[t] = cur.res;
+            if(cur.s == t ){
+                if(!map.containsKey(t))
+                    map.put(t,cur.res);
+                else if (cur.res.length() <= map.get(t).length() &&
+                cur.res.compareTo(map.get(t)) < 0){
+                    map.put(t,cur.res);
                 }
             }
 //            System.out.println("s: " + cur.s + ",res: " + cur.res);
-            if(cur.s * cur.s <= t
-                    && (dp[cur.s * cur.s].equals("z")
-                    || dp[cur.s * cur.s].length() >= cur.res.length() + 1)
-                    &&(cur.res + "*").compareTo(dp[cur.s*cur.s]) < 0){
-                dp[cur.s] = cur.res+"*";
-                q.offer(new Info(cur.s*cur.s, cur.res+"*"));
+            if(cur.s * cur.s <= t){
+
+                if(!map.containsKey(cur.s *cur.s)) {
+                    map.put(cur.s * cur.s, cur.res + "*");
+                    q.offer(new Info(cur.s * cur.s, cur.res + "*"));
+                }
+
+                else if( map.get(cur.s * cur.s).length() >= cur.res.length() + 1
+                    && (cur.res + "*").compareTo(map.get(cur.s * cur.s)) < 0 ) {
+                    map.replace(cur.s*cur.s, cur.res + "*");
+                    q.offer(new Info(cur.s*cur.s, cur.res+"*"));
+                }
+
+            }
+            if(cur.s + cur.s <= t){
+
+                if(!map.containsKey(cur.s + cur.s)) {
+                    map.put(cur.s + cur.s, cur.res + "+");
+                    q.offer(new Info(cur.s + cur.s, cur.res + "+"));
+                }
+
+                else if( map.get(cur.s + cur.s).length() >= cur.res.length() + 1
+                        && (cur.res + "+").compareTo(map.get(cur.s + cur.s)) < 0 ) {
+                    map.replace(cur.s + cur.s, cur.res + "+");
+                    q.offer(new Info(cur.s+cur.s, cur.res+"+"));
+                }
+
             }
 
-            if(cur.s + cur.s <= t
-                    && (dp[cur.s + cur.s].equals("z")
-                    || dp[cur.s + cur.s].length() >= cur.res.length() + 1)
-                    && (cur.res + "+").compareTo(dp[cur.s+cur.s]) < 0){
-                dp[cur.s] = cur.res+"+";
-                q.offer(new Info(cur.s+cur.s, cur.res+"+"));
-            }
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        s = sc.nextInt();
-        t = sc.nextInt();
+        s = sc.nextLong();
+        t = sc.nextLong();
 
-        dp = new String[t+1];
         if(s==t){
             System.out.println(0);
             return;
         }
 
-        for (int i = 0; i < t+1; i++) {
-            dp[i] = "z";
-        }
 
         q.offer(new Info(s,""));
-        if(s < t){
-            dp[s] = "";
-        }
-        dp[0] = "-";
+        map.put(s,"");
+
         q.offer(new Info(0,"-"));
+        map.put(0L,"-");
 
         if(s != 1) {
-            dp[1] = "/";
             q.offer(new Info(1, "/"));
+            map.put(1L,"/");
         }
         bfs();
 
-        if(dp[t].equals("z")){
+        if(map.containsKey(t)) {
+            System.out.println(map.get(t));
+        }
+        else
             System.out.println(-1);
-        }
-        else {
-            System.out.println(dp[t]);
-        }
     }
 }
