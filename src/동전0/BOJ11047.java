@@ -23,7 +23,7 @@ public class BOJ11047 {
 
         while (k != 0){
             for (int i = n-1; i >= 0; i--) {
-                while (aPrice[i] <= k){
+                if (aPrice[i] <= k){
                     coin += k / aPrice[i];
                     k %= aPrice[i];
                 }
