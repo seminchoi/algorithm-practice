@@ -45,8 +45,11 @@ public class Main {
 
         Collections.sort(members);
 
+        StringBuilder sb = new StringBuilder();
         for (Member member : members) {
-            System.out.println(member);
+            sb.append(member.toString()+"\n");
         }
+
+        System.out.println(sb.toString());
     }
 }
