@@ -14,27 +14,22 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
 
         int[] lan = new int[k];
-        int max = 0;
-        int min = Integer.MAX_VALUE;
+        long max = 0;
         for (int i = 0; i < k; i++) {
             lan[i] = Integer.parseInt(br.readLine());
             max = Math.max(lan[i], max);
-            min = Math.min(lan[i], min);
         }
 
         if(max == 1){
             System.out.println(1);
         }
-        else if (max == min && n == k){
-            System.out.println(max);
-        }
         else {
-            System.out.println(bSearch(lan, 1L, max));
+            System.out.println(bSearch(lan, 0, max+1));
         }
     }
 
     static long bSearch(int[] lan, long min, long max){
-        if(min == max){
+        if(min >= max){
             return min - 1;
         }
         long mid = (min + max) / 2;
