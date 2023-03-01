@@ -1,20 +1,34 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-	public static void main(String args[]) {
-		int[] N = new int[12];	
-		Scanner sc = new Scanner(System.in);
-		int input, num = sc.nextInt(); 
-		N[1]=1;
-		N[2]=2;
-		N[3]=4;
-		
-		for(int i = 4; i <= 11; i++) 
-			N[i] = N[i-1] + N[i-2] + N[i-3];
-		
-		for(int i = 0; i < num; i++) {
-			input = sc.nextInt();
-			System.out.println(N[input]);
-		}
-	}
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            sb.append(cases(Integer.parseInt(br.readLine()))).append("\n");
+        }
+        System.out.println(sb);
+    }
+
+    public static int cases(int n){
+        if(n == 0){
+            return 1;
+        }
+        int num = 0;
+
+        if(n >= 3){
+            num += cases(n-3);
+        }
+        if(n >= 2){
+            num += cases(n-2);
+        }
+        if(n >= 1){
+            num += cases(n-1);
+        }
+
+        return num;
+    }
 }
