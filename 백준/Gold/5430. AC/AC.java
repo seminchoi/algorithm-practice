@@ -1,9 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +16,7 @@ public class Main {
             String s = br.readLine();
             int n = Integer.parseInt(br.readLine());
             String arrString = br.readLine();
-            List<Integer> arr = new ArrayList<>();
+            List<Integer> arr = new LinkedList<>();
             if(n > 0){
                 arr = Arrays.stream(arrString.substring(1, arrString.length() - 1).split(",")).map(Integer::parseInt).collect(Collectors.toList());
             }
@@ -39,14 +38,23 @@ public class Main {
                         arr.remove(reverse ? arr.size()-1 : 0);
                     }
                 }
+                sb.append("[");
                 if(reverse){
-                    Collections.reverse(arr);
+                    for (int j = arr.size()-1; j > 0; j--) {
+                        sb.append(arr.get(j)).append(",");
+                    }
+                    sb.append(arr.get(0)).append("]");
                 }
-                sb.append(arr.toString().replaceAll(" ","")).append("\n");
+                else {
+                    for (int j = 0; j < arr.size()-1; j++) {
+                        sb.append(arr.get(j)).append(",");
+                    }
+                    sb.append(arr.get(arr.size()-1)).append("]");
+                }
+                sb.append("\n");
             }
         }
 
         System.out.println(sb);
     }
 }
-
