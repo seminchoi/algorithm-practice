@@ -1,10 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -16,9 +16,11 @@ public class Main {
             String s = br.readLine();
             int n = Integer.parseInt(br.readLine());
             String arrString = br.readLine();
-            List<Integer> arr = new ArrayList<>();
-            if (n > 0) {
-                arr = Arrays.stream(arrString.substring(1, arrString.length() - 1).split(",")).map(Integer::parseInt).collect(Collectors.toList());
+            Deque<Integer> arr = new LinkedList<>();
+
+            StringTokenizer st = new StringTokenizer(arrString, "[],");
+            for (int j = 0; j < n; j++) {
+                arr.add(Integer.parseInt(st.nextToken()));
             }
 
             boolean reverse = false, error = false;
@@ -32,7 +34,12 @@ public class Main {
                         error = true;
                         break;
                     }
-                    arr.remove(reverse ? arr.size() - 1 : 0);
+                    if(reverse){
+                        arr.pollLast();
+                    }
+                    else{
+                        arr.pollFirst();
+                    }
                 }
             }
             if (!error) {
@@ -41,23 +48,22 @@ public class Main {
                 }
                 else {
                     sb.append("[");
+                    int size = arr.size();
                     if (reverse) {
-                        for (int j = arr.size() - 1; j > 0; j--) {
-                            sb.append(arr.get(j)).append(",");
+                        for (int j = 0; j < size-1; j++) {
+                            sb.append(arr.pollLast()).append(",");
                         }
-                        sb.append(arr.get(0)).append("]");
+                        sb.append(arr.poll()).append("]");
                     } else {
-                        for (int j = 0; j < arr.size() - 1; j++) {
-                            sb.append(arr.get(j)).append(",");
+                        for (int j = 0; j < size - 1; j++) {
+                            sb.append(arr.pollFirst()).append(",");
                         }
-                        sb.append(arr.get(arr.size() - 1)).append("]");
+                        sb.append(arr.poll()).append("]");
                     }
                     sb.append("\n");
                 }
             }
         }
-
-
         System.out.println(sb);
     }
 }
