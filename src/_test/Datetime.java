@@ -1,8 +1,7 @@
-package _Test;
+package _test;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class Datetime {
     public static void main(String[] args) {

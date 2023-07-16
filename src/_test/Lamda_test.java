@@ -1,4 +1,4 @@
-package _Test;
+package _test;
 
 public class Lamda_test {
 

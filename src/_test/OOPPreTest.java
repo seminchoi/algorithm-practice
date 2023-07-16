@@ -1,4 +1,4 @@
-package _Test;
+package _test;
 
 //외부 클래스는 자동으로 static 이 선언되어 있습니다.
 public class OOPPreTest {

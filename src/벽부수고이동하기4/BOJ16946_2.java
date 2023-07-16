@@ -11,7 +11,6 @@ public class BOJ16946_2 {
     static ArrayList<Integer> clusterCnt = new ArrayList<>();
     static int[] xPos = {1,0,-1,0}, yPos = {0,1,0,-1};
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
     static int dfs(int x, int y){
         int size = 1;
         board[y][x] = clusterNum;
@@ -21,6 +20,7 @@ public class BOJ16946_2 {
                 size += dfs(nextX, nextY);
             }
         }
+        String[] strings = new String[10];
         return size;
     }
 

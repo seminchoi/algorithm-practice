@@ -1,4 +1,4 @@
-package _Test;
+package _test;
 
 public class final_test {
 
