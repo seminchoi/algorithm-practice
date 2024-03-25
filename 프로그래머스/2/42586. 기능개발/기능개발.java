@@ -13,11 +13,7 @@ class Solution {
             }
         }
         
-        int[] answer = new int[deliveryCounts.size()];
-        for(int i = 0; i < deliveryCounts.size(); i++) {
-            answer[i] = deliveryCounts.get(i);
-        }
-        return answer;
+        return deliveryCounts.stream().mapToInt(Integer::intValue).toArray();
     }
     
     private void doProgress(int[] progresses, int[] speeds) {
