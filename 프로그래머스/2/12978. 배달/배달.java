@@ -1,60 +1,63 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 class Solution {
-    public static List<Node>[] graph;
-
-    public static class Node {
-        int id;
+    static class Node {
+        int number;
         int weight;
-
-        public Node(int id, int weight) {
-            this.id = id;
+        
+        public Node(int number, int weight) {
+            this.number = number;
             this.weight = weight;
         }
     }
-
+    
     public int solution(int N, int[][] road, int K) {
-        graph = new ArrayList[N+1];
-        for (int i = 0; i < N+1; i++) {
+        List<Node>[] graph = createGraph(N, road);
+        return (int) Arrays.stream(calcualteWeight(graph))
+            .filter(value -> value <= K)
+            .count();
+    }
+    
+    private List<Node>[] createGraph(int N, int[][] road) {
+        List<Node>[] graph = new List[N+1];
+        for(int i = 0; i < N + 1; i++) {
             graph[i] = new ArrayList<>();
         }
-        for (int i = 0; i < road.length; i++) {
-            int[] node = road[i];
-            graph[node[0]].add(new Node(node[1], node[2]));
-            graph[node[1]].add(new Node(node[0], node[2]));
+        
+        for(int i = 0; i < road.length; i++) {
+            graph[road[i][0]].add(new Node(road[i][1], road[i][2]));
+            graph[road[i][1]].add(new Node(road[i][0], road[i][2]));
         }
-
-        int[] distances = dijkstra();
-        System.out.println(Arrays.toString(distances));
-        return (int) Arrays.stream(distances).filter(distance -> distance <= K).count();
+        
+        return graph;
     }
-
-    private int[] dijkstra() {
-        int[] distances = new int[graph.length];
-        Arrays.fill(distances, Integer.MAX_VALUE);
-
-        distances[1] = 0;
-        PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(n -> n.weight));
-        queue.offer(new Node(1, 0));
-        while (!queue.isEmpty()) {
+    
+    private int[] calcualteWeight(List<Node>[] graph) {
+        int[] weights = new int[graph.length];
+        Arrays.fill(weights, Integer.MAX_VALUE);
+        weights[1] = 0;
+        Node startNode = new Node(1,0);
+        
+        Queue<Node> queue = new PriorityQueue<>(new Comparator<Node>() {
+            @Override
+            public int compare(Node node1, Node node2) {
+                return node1.weight - node2.weight;
+            }
+        });
+        
+        queue.add(startNode);
+        
+        while(!queue.isEmpty()) {
             Node curNode = queue.poll();
 
-            if(curNode.weight > distances[curNode.id]) {
-                continue;
-            }
-
-            for (Node nextNode : graph[curNode.id]) {
-                if(distances[curNode.id] + nextNode.weight < distances[nextNode.id]) {
-                    distances[nextNode.id] = distances[curNode.id] + nextNode.weight;
-                    queue.offer(nextNode);
+            for(Node node : graph[curNode.number]) {
+                if(curNode.weight + node.weight < weights[node.number]) {
+                    weights[node.number] = curNode.weight + node.weight;
+                    queue.add(new Node(node.number, weights[node.number]));
                 }
             }
         }
-
-        return distances;
+        
+        return weights;
     }
 }
