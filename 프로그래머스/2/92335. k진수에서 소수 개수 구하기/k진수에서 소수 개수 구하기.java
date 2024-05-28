@@ -3,8 +3,6 @@ import java.util.ArrayList;
 
 class Solution {
     public int solution(int n, int k) {
-        //우선 k진수로 바꿔서 0을 포함하지 않는 수의 갯수를 구한다.
-        //각 수에 대해서 소수 판별을할지?? 에라토스테네스의 체를 쓸지 생각해야함
         List<Integer> kInt = new ArrayList<>();
         List<Long> noZero = new ArrayList<>();
 
