@@ -19,25 +19,17 @@ class Solution {
         
         for(int i = 0; i < n - 1; i++) {
             vis = new boolean[n + 1];
-            cut(wires[i][0], wires[i][1]);
+            cut(n, wires[i][0], wires[i][1]);
         }
         
         return diff;
     }
     
-    private void cut(int cutStart, int cutEnd) {
+    private void cut(int n, int cutStart, int cutEnd) {
         vis[1] = true;
-        int cnt1 = dfs(cutStart, cutEnd, 1, 0);
-        int cnt2 = 0;
-        for(int i = 1; i < vis.length; i++) {
-            if(!vis[i]) {
-                vis[i] = true;
-                cnt2 = dfs(cutStart, cutEnd, i, 0);
-                break;
-            }
-        }
+        int cnt = dfs(cutStart, cutEnd, 1, 0);
         
-        diff = Math.min(diff, Math.abs(cnt1 - cnt2));
+        diff = Math.min(diff, Math.abs(cnt - (n - cnt)));
     }
     
     private int dfs(int cutStart, int cutEnd, int cur, int cnt) {
