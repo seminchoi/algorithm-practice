@@ -1,31 +1,38 @@
 class Solution {
     public int solution(int[] stones, int k) {
-        // k칸 안에 가장 큰 걸 찾는다
-        // 그 다음 k칸 안에 가장 큰거
+        int min = 0, max = Integer.MAX_VALUE -1;
         
-        int totalMin = Integer.MAX_VALUE;
-        int[] maxs = new int[stones.length];
-        
-        maxs[stones.length - 1] = stones[stones.length - 1];
-        for(int i = stones.length - 2; i >= 0; i--) {
-            maxs[i] = Math.max(maxs[i+1], stones[i]);
+        while (min < max) {
+            int mid = (min + max) / 2;
+            if(!goOver(stones, k, mid)) {
+                max = mid;
+            } else {
+                min = mid + 1;
+            }
         }
         
-        for(int i = 0; i < stones.length - k + 1 ;) {
-            int max = stones[i];
-            int idx = i;
-            if(max != maxs[i]) {
-                for(int j = 1; j < k && i + j < stones.length ; j++) {
-                    if(max <= stones[i + j]) {
-                        max = stones[i + j];
-                        idx = i + j;
-                    }
+        return min - 1;
+    }
+    
+    private boolean goOver(int[] stones, int k, int n) {
+        for(int i = 0; i < stones.length - k + 1;) {
+            int temp = i;
+            boolean pass = false;
+            for(int j = i; j < i + k; j++) {
+                if(stones[j] >= n) {
+                    temp = j;
+                    pass = true;
+                    break;
                 }
             }
-            totalMin = Math.min(totalMin, max);
-            i = idx + 1;
+            
+            if (pass) {
+                i = temp + 1;
+            } else {
+                return false;
+            }
         }
         
-        return totalMin;
+        return true;
     }
 }
